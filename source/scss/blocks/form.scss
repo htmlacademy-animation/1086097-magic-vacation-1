@@ -43,6 +43,13 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform $default-transition;
+
+  .active & {
+    transform: scaleX(1);
+  }
 
   &:focus {
     border: 1px solid $c-purple;

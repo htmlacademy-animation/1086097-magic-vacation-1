@@ -80,18 +80,6 @@
   line-height: 0.906;
   letter-spacing: -0.04em;
 
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity $transition-600, transform $transition-600;
-
-  .swiper-slide-active & {
-    .active & {
-      opacity: 1;
-      transform: translateY(0);
-      transition-delay: 0.1s;
-    }
-  }
-
   @media (min-width: $stop-scaling) {
     margin-left: -55px;
     font-size: 48px;
@@ -115,7 +103,7 @@
   font-size: 1.8rem;
   line-height: 2rem;
   opacity: 0;
-  transform: translateX(25px);
+  transform: translateX(3rem);
   transition: opacity $transition-600, transform $transition-600;
 
   .swiper-slide-active & {
@@ -130,7 +118,7 @@
     .active & {
       opacity: 1;
       transform: translateX(0);
-      transition-delay: 0.4s;
+      transition-delay: 0.5s;
     }
   }
 

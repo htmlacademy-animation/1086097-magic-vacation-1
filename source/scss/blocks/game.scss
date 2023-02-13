@@ -50,16 +50,6 @@
   line-height: 0.906;
   letter-spacing: -0.04em;
 
-  opacity: 0;
-  transform: translateX(15px);
-  transition: opacity $transition-600, transform $transition-600;
-
-  .active & {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.1s;
-  }
-
   @media (min-width: $stop-scaling) {
     font-size: 48px;
   }
