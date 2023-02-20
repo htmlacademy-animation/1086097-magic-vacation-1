@@ -41,8 +41,18 @@ export default class FullPageScroll {
 
   onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
-    this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-    this.changePageDisplay();
+
+    if (this.screenElements[this.activeScreen].id === `story` && newIndex === 2) {
+      this.screenElements[this.activeScreen].querySelector(`.screen-masking-background`).classList.add(`screen-masking-background--active`);
+      setTimeout(() => {
+        this.screenElements[this.activeScreen].querySelector(`.screen-masking-background`).classList.remove(`screen-masking-background--active`);
+        this.activeScreen = (newIndex < 0) ? 0 : newIndex;
+        this.changePageDisplay();
+      }, 400);
+    } else {
+      this.activeScreen = (newIndex < 0) ? 0 : newIndex;
+      this.changePageDisplay();
+    }
   }
 
   changePageDisplay() {
@@ -53,9 +63,10 @@ export default class FullPageScroll {
 
   changeVisibilityDisplay() {
     this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
+      screen.classList.add(`screen--hidden`);
     });
+
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);

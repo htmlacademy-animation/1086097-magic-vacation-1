@@ -308,6 +308,22 @@
   }
 }
 
+.screen-masking-background {
+  background-color: $c-dark;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  bottom: 0;
+  transform-origin: 0 bottom;
+  transform: scaleY(0);
+  transition: transform 0.3s;
+
+  &--active {
+    transform: scaleY(1);
+  }
+}
+
 .screen--prizes {
   background-color: $c-dark;
 }
