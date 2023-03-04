@@ -317,9 +317,11 @@
   bottom: 0;
   transform-origin: 0 bottom;
   transform: scaleY(0);
-  transition: transform 0.3s;
+  transition: transform 0.5s;
+  transition-timing-function: cubic-bezier(.17,.67,.27,1);
 
-  &--active {
+
+  .is-transition & {
     transform: scaleY(1);
   }
 }
