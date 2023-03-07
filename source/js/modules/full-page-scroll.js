@@ -39,20 +39,30 @@ export default class FullPageScroll {
     }, this.THROTTLE_TIMEOUT);
   }
 
-  onUrlHashChanged() {
-    const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
+  // onUrlHashChanged() {
+  //   const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
 
-    if (this.screenElements[this.activeScreen].id === `story` && newIndex === 2) {
-      this.screenElements[this.activeScreen].querySelector(`.screen-masking-background`).classList.add(`screen-masking-background--active`);
-      setTimeout(() => {
-        this.screenElements[this.activeScreen].querySelector(`.screen-masking-background`).classList.remove(`screen-masking-background--active`);
-        this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-        this.changePageDisplay();
-      }, 400);
-    } else {
+  //   if (this.screenElements[this.activeScreen].id === `story` && newIndex === 2) {
+  //     this.screenElements[this.activeScreen].querySelector(`.screen-masking-background`).classList.add(`screen-masking-background--active`);
+  //     setTimeout(() => {
+  //       this.screenElements[this.activeScreen].querySelector(`.screen-masking-background`).classList.remove(`screen-masking-background--active`);
+  //       this.activeScreen = (newIndex < 0) ? 0 : newIndex;
+  //       this.changePageDisplay();
+  //     }, 400);
+  //   } else {
+  //     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
+  //     this.changePageDisplay();
+  //   }
+  // }
+
+  onUrlHashChanged() {
+    this.screenElements[this.activeScreen].classList.add(`is-transition`);
+    setTimeout(() => {
+      this.screenElements[this.activeScreen].classList.remove(`is-transition`);
+      const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
       this.activeScreen = (newIndex < 0) ? 0 : newIndex;
       this.changePageDisplay();
-    }
+    }, 500);
   }
 
   changePageDisplay() {
