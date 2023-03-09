@@ -265,14 +265,18 @@
   opacity: 0;
   transition: transform $default-transition 1.8s, opacity $default-transition 1.8s;
 
+  &::before {
+    border-radius: 50%;
+    transition: border-radius $default-transition 1.8s;
+  }
+
   .active & {
     transform: scaleX(1);
     opacity: 1;
 
-    // &::before {
-    //   width: 100%;
-    //   border-radius: 3.5rem;
-    // }
+    &::before {
+      border-radius: 3.5rem;
+    }
   }
 
   & span {
