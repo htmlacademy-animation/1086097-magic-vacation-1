@@ -32,10 +32,8 @@ setTimeout(()=>{
   animationTopScreenTextLine.runAnimation();
 }, 600);
 
-const animationDate = new AccentTypographyBuild(`.intro__date`, 300, `active-word`, `transform`);
-setTimeout(()=>{
-  animationDate.runAnimation();
-}, 1800);
+const animationDate = new AccentTypographyBuild(`.intro__date`, 300, `active-word`, `transform`, 500);
+animationDate.runAnimation();
 
 const animationTitleStory = new AccentTypographyBuild(`.slider__item-title`, 300, `active-word`, `transform`);
 setTimeout(()=>{

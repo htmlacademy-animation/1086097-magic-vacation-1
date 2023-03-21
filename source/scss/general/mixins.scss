@@ -58,3 +58,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin transition($property, $duration: 300ms, $tf: ease-out, $delay: 0ms) {
+  transition: $property $duration $tf $delay;
+}

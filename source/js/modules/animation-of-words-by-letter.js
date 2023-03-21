@@ -4,13 +4,14 @@ export default class AccentTypographyBuild {
       timer,
       classForActivate,
       property,
+      timeOffset = 0,
   ) {
     this._elementSelector = elementSelector;
     this._timer = timer;
     this._classForActivate = classForActivate;
     this._property = property;
     this._element = document.querySelector(this._elementSelector);
-    this._timeOffset = 0;
+    this._timeOffset = timeOffset;
     this.delta = 50;
 
     this.prePareText();
@@ -19,7 +20,7 @@ export default class AccentTypographyBuild {
   createElement(letter) {
     const span = document.createElement(`span`);
     span.textContent = letter;
-    span.style.transition = `${this._property} ${this._timer}ms ease ${this._timeOffset}ms`;
+    span.style.transition = `${this._property} ${this._timer}ms cubic-bezier(.13,1.05,.79,.99) ${this._timeOffset}ms`;
     return span;
   }
 
@@ -31,10 +32,12 @@ export default class AccentTypographyBuild {
 
     const content = text.reduce((fragmentParent, word) => {
       const wordElement = Array.from(word).reduce((fragment, latter, index) => {
-
-        if (index < 3) {
+        if (index % 2 === 0) {
           fragment.appendChild(this.createElement(latter));
           this._timeOffset -= this.delta;
+        } else if (index % 3 === 0) {
+          fragment.appendChild(this.createElement(latter));
+          this._timeOffset += this.delta;
         } else {
           fragment.appendChild(this.createElement(latter));
           this._timeOffset += this.delta;
@@ -43,7 +46,7 @@ export default class AccentTypographyBuild {
       }, document.createDocumentFragment());
 
       const wordContainer = document.createElement(`span`);
-      wordContainer.classList.add(`text__word`);
+      wordContainer.classList.add(`animation-word`);
       wordContainer.appendChild(wordElement);
       fragmentParent.appendChild(wordContainer);
       fragmentParent.appendChild(document.createTextNode(`\u0020`));
