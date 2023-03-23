@@ -2,7 +2,6 @@
   overflow: hidden;
   display: inline-block;
   vertical-align: top;
-  padding-top: 22px;
 }
 
 .animation-word > span {
@@ -11,7 +10,7 @@
   margin: 0;
   transform: translate3d(0, 20rem, 0);
 
-  .active & {
+  .active-word & {
     transform: translate3d(0, 0, 0);
   }
 }

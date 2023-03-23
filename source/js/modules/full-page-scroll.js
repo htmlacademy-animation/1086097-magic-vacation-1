@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import {initAnimationTitle, resetAnimationTitle} from './init-animation-title';
 
 export default class FullPageScroll {
   constructor() {
@@ -69,6 +70,8 @@ export default class FullPageScroll {
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+    resetAnimationTitle();
+    initAnimationTitle();
   }
 
   changeVisibilityDisplay() {

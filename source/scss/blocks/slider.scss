@@ -180,6 +180,22 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  opacity: 0;
+
+  .active & {
+    animation-fill-mode: forwards;
+    animation-duration: 1.2s;
+    animation-delay: 0.35s;
+    animation-timing-function: cubic-bezier(0.29, 1.04, 0.39, 0.98);
+  }
+
+  &--next {
+    animation-name: slider-button-move-from-right;
+  }
+
+  &--prev {
+    animation-name: slider-button-move-from-left;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -241,8 +257,12 @@
   }
 
   &.swiper-button-disabled {
-    opacity: 0.5;
+    opacity: 0;
     pointer-events: none;
+
+    & .active {
+      opacity: 0.5;
+    }
   }
 }
 
@@ -258,6 +278,12 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  opacity: 0;
+  @include transition(opacity, $duration: 600ms, $delay: 600ms);
+
+  .active & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
