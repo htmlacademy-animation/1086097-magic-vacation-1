@@ -19,6 +19,34 @@
   border-radius: 50%;
   transition: color $default-transition;
 
+  &:hover {
+    color: $c-purple;
+  }
+
+  .js-active-slide-0 & {
+    color: $c-purple;
+
+    &:hover {
+      color: $c-dark;
+    }
+  }
+
+  .js-active-slide-2 & {
+    color: $c-royal-blue;
+
+    &:hover {
+      color: $c-cornflower;
+    }
+  }
+
+  .js-active-slide-4 & {
+    color: $c-cornflower;
+
+    &:hover {
+      color: $c-royal-blue;
+    }
+  }
+
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
   }
@@ -69,6 +97,21 @@
         background-color: $c-purple;
         border: 2px solid $c-purple;
         transition-delay: 0s;
+
+        .js-active-slide-0 & {
+          background-color: $c-dark;
+          border-color: $c-dark;
+        }
+
+        .js-active-slide-2 & {
+           background-color: $c-cornflower;
+           border-color: $c-cornflower;
+        }
+
+        .js-active-slide-4 & {
+          background-color: $c-royal-blue;
+          border-color: $c-royal-blue;
+        }
       }
     }
 
@@ -85,6 +128,30 @@
 
     &::before {
       border-color: $c-purple;
+    }
+
+    .js-active-slide-0 & {
+      color: $c-dark;
+
+      &::before {
+        border-color: $c-dark;
+      }
+    }
+
+    .js-active-slide-2 & {
+      color: $c-cornflower;
+
+      &::before {
+        border-color: $c-cornflower;
+      }
+    }
+
+    .js-active-slide-4 & {
+      color: $c-royal-blue;
+
+      &::before {
+        border-color: $c-royal-blue;
+      }
     }
 
     & + .social-block__list {
@@ -105,8 +172,6 @@
     }
   }
 }
-
-
 
 .social-block__list {
   @include list-reset;
@@ -235,6 +300,18 @@
 
   &:hover {
     color: $c-purple;
+
+    .js-active-slide-0 & {
+      color: $c-dark;
+    }
+
+    .js-active-slide-2 & {
+      color: $c-cornflower;
+    }
+
+    .js-active-slide-4 & {
+      color: $c-royal-blue;
+    }
   }
 
   &:focus {

@@ -1,3 +1,32 @@
+@keyframes open-footer {
+  0% {
+    transform: scale(0.3);
+    transform-origin: left bottom;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: left bottom;
+  }
+}
+
+@keyframes close-footer {
+  20% {
+    transform: scale(1);
+    transform-origin: left bottom;
+  }
+
+  99.9% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    transform: scale(0.3);
+    opacity: 0;
+    transform-origin: left bottom;
+  }
+}
+
 @keyframes slider-button-move-from-right {
   20% {
     opacity: 0;

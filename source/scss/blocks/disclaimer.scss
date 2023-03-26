@@ -1,6 +1,7 @@
 .disclaimer {
   color: $c-dark;
   background-color: $c-light;
+  padding-bottom: 0.1rem;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     font-weight: 400;
@@ -76,6 +77,12 @@
     padding: 0.9rem 0 0.7rem;
     text-decoration: underline;
     color: inherit;
+    opacity: 0;
+    @include transition(opacity, $delay: 300ms);
+
+    .active & {
+      opacity: 1;
+    }
 
     @media (min-width: $stop-scaling) {
       padding: 9px 0 7px;

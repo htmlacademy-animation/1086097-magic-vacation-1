@@ -1,7 +1,7 @@
 import AccentTypographyBuild from './animation-of-words-by-letter';
 
 const animationTopScreenTextLine = new AccentTypographyBuild(`.intro__title`, 300, `active-word`, `transform`, 400);
-const animationDate = new AccentTypographyBuild(`.intro__date`, 300, `active-word`, `transform`, 800);
+const animationDate = new AccentTypographyBuild(`.intro__date`, 300, `active-word`, `transform`, 1200);
 const animationTitleStory = new AccentTypographyBuild(`.slider__item-title`, 300, `active-word`, `transform`, 400);
 const animationTitlePrizes = new AccentTypographyBuild(`.prizes__title`, 300, `active-word`, `transform`, 400);
 const animationTitleRules = new AccentTypographyBuild(`.rules__title`, 300, `active-word`, `transform`, 400);

@@ -224,6 +224,7 @@
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
+      left: 1rem;
       width: 2.5rem;
       height: 2.5rem;
       line-height: 3rem;
@@ -231,11 +232,12 @@
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
-      top: 0.6rem;
+      top: 0.9rem;
       width: 2.5rem;
       height: 2.5rem;
       line-height: 3rem;
       font-size: 1.4rem;
+      left: 1rem;
     }
   }
 

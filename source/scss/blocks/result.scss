@@ -152,12 +152,28 @@
     font-size: 1.6rem;
   }
 
-  span {
+  .result__button-text {
+    opacity: 0;
+    @include transition(opacity, 600ms, $delay: 300ms);
+
+    .active & {
+      opacity: 1;
+    }
+  }
+
+  .result__button-icon {
     position: relative;
     margin-left: 1.5rem;
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    opacity: 0;
+
+    .active & {
+      animation-name: slider-button-move-from-right;
+      animation-fill-mode: forwards;
+      animation-duration: 1000ms;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
