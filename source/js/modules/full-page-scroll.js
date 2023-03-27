@@ -1,13 +1,17 @@
 import throttle from 'lodash/throttle';
+import {initAnimationTitle, resetAnimationTitle} from './init-animation-title';
+import removeActiveSlideClass from "./remove-active-slide-class";
 
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 1000;
+    this.MAX_QUANTITY_OF_SLIDES = 7;
     this.scrollFlag = true;
     this.timeout = null;
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.body = document.querySelector(`body`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -62,6 +66,7 @@ export default class FullPageScroll {
       const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
       this.activeScreen = (newIndex < 0) ? 0 : newIndex;
       this.changePageDisplay();
+
     }, 500);
   }
 
@@ -69,6 +74,8 @@ export default class FullPageScroll {
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+    resetAnimationTitle();
+    initAnimationTitle();
   }
 
   changeVisibilityDisplay() {
@@ -80,6 +87,11 @@ export default class FullPageScroll {
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
+
+      removeActiveSlideClass(this.body, this.MAX_QUANTITY_OF_SLIDES);
+      if (this.screenElements[this.activeScreen].id === `story`) {
+        this.body.classList.add(`js-active-slide-0`);
+      }
     }, 100);
   }
 

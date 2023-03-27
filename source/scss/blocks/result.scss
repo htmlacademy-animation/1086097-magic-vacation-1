@@ -95,8 +95,18 @@
     line-height: 1.1;
   }
 
+  @media (max-width: 800px) {
+    padding-bottom: 150px;
+    margin-bottom: 100px;
+  }
+
   @media (max-width: $mobile) and (orientation: landscape) {
     font-size: 2.8rem;
+  }
+
+  @media (max-width: 500px) {
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   p {
@@ -142,12 +152,28 @@
     font-size: 1.6rem;
   }
 
-  span {
+  .result__button-text {
+    opacity: 0;
+    @include transition(opacity, 600ms, $delay: 300ms);
+
+    .active & {
+      opacity: 1;
+    }
+  }
+
+  .result__button-icon {
     position: relative;
     margin-left: 1.5rem;
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    opacity: 0;
+
+    .active & {
+      animation-name: slider-button-move-from-right;
+      animation-fill-mode: forwards;
+      animation-duration: 1000ms;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
@@ -290,6 +316,12 @@ img.result__image-leaf-blue-1 {
     animation-fill-mode: forwards;
     animation-delay: 300ms;
   }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    width: 14rem;
+    top: 40%;
+    left: calc(57% - 6rem);
+  }
 }
 
 img.result__image-leaf-blue-2 {
@@ -303,6 +335,12 @@ img.result__image-leaf-blue-2 {
     animation-fill-mode: forwards;
     animation-delay: 320ms;
   }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    width: 14rem;
+    left: calc(33% - 6rem);
+    top: 54%;
+  }
 }
 
 img.result__image-leaf-green {
@@ -315,6 +353,12 @@ img.result__image-leaf-green {
     animation: showing-right 2.9s;
     animation-fill-mode: forwards;
     animation-delay: 350ms;
+  }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    width: 17rem;
+    top: 52%;
+    left: calc(55% - 3rem);
   }
 }
 
@@ -330,6 +374,12 @@ img.result__image-suitcase {
   .active & {
     transform: scale(1);
   }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    width: 18rem;
+    top: 40%;
+    left: calc(45% - 8rem);
+  }
 }
 
 img.result__image-flamingo {
@@ -342,6 +392,10 @@ img.result__image-flamingo {
     animation-fill-mode: both;
     animation-delay: 400ms;
     transform-origin: 0 100%;
+  }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    width: 14rem;
   }
 }
 
@@ -360,5 +414,11 @@ img.result__image-flamingo {
   .active & {
     transform: translate3d(0, 0, 0);
     opacity: 1;
+  }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    width: 14rem;
+    top: 50%;
+    left: calc(40% - 7rem);
   }
 }

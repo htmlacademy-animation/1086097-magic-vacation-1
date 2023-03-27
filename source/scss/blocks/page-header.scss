@@ -310,6 +310,30 @@
         transform: scaleX(1);
         background-color: $c-purple;
       }
+
+      .js-active-slide-0 & {
+        color: $c-dark;
+
+        &::after {
+          background-color: $c-dark;
+        }
+      }
+
+      .js-active-slide-2 & {
+        color: $c-cornflower;
+
+        &::after {
+          background-color: $c-cornflower;
+        }
+      }
+
+      .js-active-slide-4 & {
+        color: $c-royal-blue;
+
+        &::after {
+          background-color: $c-royal-blue;
+        }
+      }
     }
   }
 }

@@ -1,8 +1,10 @@
 import Swiper from "swiper";
+import removeActiveSlideClass from "./remove-active-slide-class";
 
 export default () => {
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
+  let body = document.querySelector(`body`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
   const setSlider = function () {
@@ -17,6 +19,8 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            removeActiveSlideClass(body, 7);
+            body.classList.add(`js-active-slide-${storySlider.activeIndex}`);
             if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
             } else if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
@@ -51,6 +55,8 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            removeActiveSlideClass(body, 6);
+            body.classList.add(`js-active-slide-${storySlider.activeIndex}`);
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
             } else if (storySlider.activeIndex === 2) {
