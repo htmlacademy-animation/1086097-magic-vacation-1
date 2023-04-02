@@ -84,11 +84,12 @@
     &::after {
       opacity: 0;
       transition: transform $default-transition, opacity;
-      transform: translate3d(94.2%, 0, 0);
+      transform: translate3d(93.8%, 0, 0);
       transition-delay: 1s;
 
-      .active & {
+      .screen--show & {
         opacity: 1;
+        transform: translate3d(0, 0, 0);
       }
     }
   }
@@ -204,7 +205,7 @@
     opacity: 0;
     @include transition(opacity, $delay: 0.6s);
 
-    .active & {
+    .screen--show & {
       opacity: 1;
     }
   }
@@ -213,7 +214,7 @@
     opacity: 0;
     @include transition(opacity, $delay: 1s);
 
-    .active & {
+    .screen--show & {
       opacity: 1;
     }
   }
@@ -222,7 +223,7 @@
     color: transparent;
     @include transition(color, $delay: 1.3s);
 
-    .active & {
+    .screen--show & {
       color: $c-placeholder;
     }
   }
