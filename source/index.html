@@ -35,12 +35,6 @@
             <li>
               <a class="js-menu-link" href="#game" data-href="game">игра</a>
             </li>
-            <!-- <li>
-              <a class="js-menu-link" href="#victory" data-href="victory">победа</a>
-            </li>
-            <li>
-              <a class="js-menu-link" href="#no" data-href="no">no</a>
-            </li> -->
           </ul>
         </div>
         <div class="page-header__social">
@@ -197,12 +191,28 @@
           <div class="prizes__lead">
             <p>Найди ответ и&nbsp;получи один из&nbsp;призов:</p>
           </div>
+          <!-- <div class="prizes__airship">
+            <img class="js-animation" src="img/module-3/img/primary-award-from.svg" alt="">
+          </div> -->
           <ul class="prizes__list">
-            <li class="prizes__item prizes__item--journeys">
-              <div class="prizes__icon">
+            <li class="">
+              <div class="prizes__icon prizes-airship">
                 <picture>
-                  <source srcset="img/prize1-mob.svg" media="(orientation: portrait)">
-                  <img src="img/prize1.svg" alt="">
+                  <img class="js-animation" src="img/module-3/img/primary-award-from.svg" alt="">
+                </picture>
+              </div>
+              <!-- <div class="prizes__icon prizes-airship">
+                <picture>
+                  <img class="js-animation" src="img/module-3/img/primary-award-to.svg" alt="">
+                </picture>
+              </div> -->
+            </li>
+            <li class="prizes__item prizes__item--journeys js-animation-active">
+              <div class="prizes__icon prizes-airship">
+                <picture>
+                  <!-- <source srcset="img/prize1-mob.svg" media="(orientation: portrait)"> -->
+                  <img class="js-animation" src="img/module-3/img/primary-award-to.svg" alt="">
+                  <!-- <img src="img/prize1.svg" alt=""> -->
                 </picture>
               </div>
               <p class="prizes__desc">
@@ -403,7 +413,6 @@
     </section>
 
     <section class="screen screen--hidden screen--result" id="result2">
-    <!-- <section class="screen screen--victory" id="victory"> -->
       <div class="screen__wrapper">
         <div class="result result--prize">
           <div class="result__image">
@@ -474,8 +483,7 @@
       </div>
     </section>
 
-    <!-- <section class="screen screen--hidden screen--result" id="result3"> -->
-    <section class="screen screen--no" id="no">
+    <section class="screen screen--hidden screen--result" id="result3">
       <div class="screen__wrapper">
         <div class="result result--negative">
           <div class="result__image">

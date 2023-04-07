@@ -66,8 +66,18 @@ export default class FullPageScroll {
       const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
       this.activeScreen = (newIndex < 0) ? 0 : newIndex;
       this.changePageDisplay();
-
     }, 500);
+
+
+    const myAnimationElement = document.querySelectorAll(`.js-animation`);
+    let menu = document.querySelector(`.page-header__menu`);
+    menu.addEventListener(`click`, function () {
+      myAnimationElement.forEach((img) => {
+        img.src = img.src;
+      });
+    }, false);
+
+
   }
 
   changePageDisplay() {

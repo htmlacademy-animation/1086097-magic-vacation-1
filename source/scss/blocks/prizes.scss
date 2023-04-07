@@ -58,6 +58,14 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  transform: translate3d(0, 1.5rem, 0);
+  opacity: 0;
+  @include transition(transform, $duration2: 700ms, $delay: 600ms, $delay2: 600ms);
+
+  .active & {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
@@ -88,9 +96,37 @@
   }
 }
 
+.prizes-airship {
+  position: absolute;
+  left: 50%;
+  top: -0.5%;
+  width: 28.5rem;
+
+  @media (min-width: $stop-scaling) {
+    left: 0;
+    top: 0;
+  }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    left: 0;
+    top: 0;
+  }
+
+  @media (max-width: $tablet) and (orientation: landscape) {
+    left: -2rem;
+    width: 13rem;
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    width: 10rem;
+  }
+}
+
 .prizes__list {
+  position: relative;
   @include list-reset;
   display: flex;
+  // display: none;
   justify-content: flex-end;
   align-items: flex-end;
   margin-top: auto;
@@ -127,6 +163,16 @@
   }
 
   &--journeys {
+    // display: none;
+    transform: translateX(35rem);
+    opacity: 0;
+    @include transition(transform, $delay: 6000ms);
+
+    .active & {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
     .prizes__icon {
       position: relative;
       left: -5.9rem;
@@ -158,6 +204,8 @@
 
   &--cases {
     margin-left: 7rem;
+    // display: none;
+    opacity: 0;
 
     @media (min-width: $stop-scaling) {
       margin-left: 70px;
@@ -191,6 +239,9 @@
   }
 
   &--codes {
+    // display: none;
+    opacity: 0;
+
     @media (max-width: $tablet) and (orientation: portrait) {
       padding-left: 0.8rem;
     }
